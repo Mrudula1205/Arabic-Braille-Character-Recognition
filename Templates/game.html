@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/game.css')}}">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h3>Guess the character </h3>
+    <div class="gamearea">
+        <img src="{{ image_path }}" alt="braille_image", width="150px" height="150px", id="brailleImage">
+        <div class="answercanvas">
+            <canvas id="canvas"></canvas>
+            <div class="tools">
+            
+                <button onclick="clearcanvas()" type="button" class="button">Clear</button>
+
+                <input onInput="draw_color = this.value" type="color" class="color-picker">
+                <input type="range" min="10" max="50" class="pen-range" onInput="draw_width = this.value">
+                <button onclick="submitanswer()" type="button" class="button" id="enter">Enter</button>
+
+            </div>
+            <input type="hidden" id="correctTag" value="{{ correct_tag }}">
+        </div>
+    </div>
+    
+    
+</body>
+
+<script src="{{url_for('static', filename='Js/game.js')}}"></script>
+</html>

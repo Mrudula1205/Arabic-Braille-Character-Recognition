@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/index.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="landing">
+        <button onclick="openInfoModal()">Info</button>
+        <h3>Guess the Arabic Braille Character</h3>
+        <button onclick="startGame()">Let's Begin</button>
+    </section>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeInfoModal()">&times;</span>
+          <h2>How to Play</h2>
+          <p>1. A Braille character will be shown on the screen.</p>
+          <p>2. Your task is to draw the corresponding Arabic letter on the canvas.</p>
+          <p>3. After drawing, click the 'Submit' button to check your answer.</p>
+          <p>4. If correct, you will proceed to the next question. If incorrect, try again!</p>
+        </div>
+    </div>
+</body>
+<script>
+    function startGame(){
+        window.location.href = "/game";
+    }
+    function openInfoModal() {
+    document.getElementById("infoModal").style.display = "block";
+    }
+
+    // Close the Modal
+    function closeInfoModal() {
+        document.getElementById("infoModal").style.display = "none";
+    }
+
+    // Close the modal if the user clicks outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById("infoModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</html>
